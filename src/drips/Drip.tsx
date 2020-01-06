@@ -9,7 +9,19 @@ type DripProps = {
     onDripRemoval: Function
 };
 
-class Drip extends React.Component<DripProps, {}> {
+type DripState = {
+    offset: number
+};
+
+class Drip extends React.Component<DripProps, DripState> {
+    constructor(props: DripProps) {
+        super(props);
+
+        this.state = {
+            offset: 0
+        };
+    }  
+    
     componentDidMount() {
         setTimeout(() => {
             this.props.onDripRemoval(this.props.id);
@@ -21,10 +33,9 @@ class Drip extends React.Component<DripProps, {}> {
             <div 
                 className="Drip"
                 style={{
-                    top: (this.props.yPos - 50),
-                    left: (this.props.xPos - 50)
+                    top: this.props.yPos,
+                    left: this.props.xPos
                 }}>
-                <span>Drip {this.props.id}</span>
             </div>
         );
     }
