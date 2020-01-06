@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import UIfx from 'uifx';
 
 import Drip from './drips/Drip';
 import DripModel from './drips/DripModel';
 
 import './App.css';
+const dripAudio = require('./sounds/drip.wav');
+
+const dripSound = new UIfx(dripAudio);
 
 function App() {
   const [drips, setDrips] = useState(new Array<DripModel>());
@@ -26,6 +30,7 @@ function App() {
     currentDrips.push(newDrip);
 
     setDrips(currentDrips);
+    dripSound.play();
   }  
 
   function handleDripRemoval(dripId: number) {

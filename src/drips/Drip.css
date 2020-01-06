@@ -19,10 +19,6 @@
     animation-delay: 0.7s;
 }
 
-.Drip.Sub-3 {
-    animation-delay: 1.05s;
-}
-
 @keyframes ripple {
     from {
         height: 0px;

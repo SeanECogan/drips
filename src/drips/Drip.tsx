@@ -13,7 +13,7 @@ class Drip extends React.Component<DripProps, {}> {
     componentDidMount() {
         setTimeout(() => {
             this.props.onDripRemoval(this.props.id);
-        }, 4550);
+        }, 4200);
     }
 
     render() {
@@ -35,13 +35,6 @@ class Drip extends React.Component<DripProps, {}> {
                 </div>
                 <div
                     className="Drip Sub-2"
-                    style={{
-                        top: this.props.yPos,
-                        left: this.props.xPos
-                    }}>
-                </div>
-                <div
-                    className="Drip Sub-3"
                     style={{
                         top: this.props.yPos,
                         left: this.props.xPos
