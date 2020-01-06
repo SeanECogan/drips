@@ -9,22 +9,46 @@ function App() {
   const [drips, setDrips] = useState(new Array<DripModel>());
 
   function addDrip(e: MouseEvent) {
-    const currentDrips = Object.assign([], drips);
+    const currentDrips = [...drips];
 
-    currentDrips.push(new DripModel(
-      drips.length + 1,
+    let newDripId = 1;
+
+    if (drips.length > 0) {
+      newDripId = Math.max(...drips.map(drip => drip.id)) + 1;
+    }
+
+    const newDrip = new DripModel(
+      newDripId,
       e.clientX,
       e.clientY
-    ));
+    );
+
+    currentDrips.push(newDrip);
 
     setDrips(currentDrips);
-  }
+  }  
 
   useEffect(() => {
     window.addEventListener('mouseup', addDrip);
 
+    const dripCleanupInterval = setInterval(() => {
+      const currentDrips = [...drips];
+
+      const filteredDrips = currentDrips.filter(drip => {
+        var dripCreatedAt = new Date(drip.createdAt);
+
+        var dripExpirationTime = new Date(dripCreatedAt.setSeconds(drip.createdAt.getSeconds() + 2));
+
+        return dripExpirationTime > new Date();
+      }, 250);
+
+      setDrips(filteredDrips);
+    })
+
     return () => {
       window.removeEventListener('mouseup', addDrip);
+
+      clearInterval(dripCleanupInterval);
     }
   });
 
