@@ -1,17 +1,33 @@
 import React from 'react';
 
+import './Drip.css';
+
 type DripProps = {
     id: number,
     xPos: number,
-    yPos: number
+    yPos: number,
+    onDripRemoval: Function
 };
 
-const Drip = ({ id, xPos, yPos }: DripProps) => {
-    return (
-        <div>
-            <p>This is drip {id}. It is located at {xPos}, {yPos}.</p>
-        </div>
-    );
+class Drip extends React.Component<DripProps, {}> {
+    componentDidMount() {
+        setTimeout(() => {
+            this.props.onDripRemoval(this.props.id);
+        }, 2000);
+    }
+
+    render() {
+        return (
+            <div 
+                className="Drip"
+                style={{
+                    top: (this.props.yPos - 50),
+                    left: (this.props.xPos - 50)
+                }}>
+                <span>Drip {this.props.id}</span>
+            </div>
+        );
+    }
 }
 
 export default Drip;

@@ -28,27 +28,19 @@ function App() {
     setDrips(currentDrips);
   }  
 
+  function handleDripRemoval(dripId: number) {
+    const currentDrips = [...drips];
+
+    const filteredDrips = currentDrips.filter(drip => drip.id !== dripId);
+
+    setDrips(filteredDrips);
+  }
+
   useEffect(() => {
-    window.addEventListener('mouseup', addDrip);
-
-    const dripCleanupInterval = setInterval(() => {
-      const currentDrips = [...drips];
-
-      const filteredDrips = currentDrips.filter(drip => {
-        var dripCreatedAt = new Date(drip.createdAt);
-
-        var dripExpirationTime = new Date(dripCreatedAt.setSeconds(drip.createdAt.getSeconds() + 2));
-
-        return dripExpirationTime > new Date();
-      }, 250);
-
-      setDrips(filteredDrips);
-    })
-
+    window.addEventListener('mouseup', addDrip);   
+    
     return () => {
       window.removeEventListener('mouseup', addDrip);
-
-      clearInterval(dripCleanupInterval);
     }
   });
 
@@ -63,14 +55,10 @@ function App() {
               key={drip.id}
               id={drip.id}
               xPos={drip.xPos}
-              yPos={drip.yPos} />
+              yPos={drip.yPos}
+              onDripRemoval={handleDripRemoval} />
           );
         })
-      }
-      {
-        (!drips || 
-          drips.length <= 0) && 
-          <p>No drips yet.</p>
       }
     </div>
   );
