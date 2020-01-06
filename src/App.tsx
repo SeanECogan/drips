@@ -3,10 +3,12 @@ import UIfx from 'uifx';
 
 import Drip from './drips/Drip';
 import DripModel from './drips/DripModel';
+import HomeLink from './ui/HomeLink';
+import Instructions from './ui/Instructions';
 
 import './App.css';
-const dripAudio = require('./sounds/drip.wav');
 
+const dripAudio = require('./sounds/drip.wav');
 const dripSound = new UIfx(dripAudio);
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
 
   return (
     <div className="App">
+      <HomeLink />
+      <Instructions />
       {
         drips && 
         drips.length > 0 && 

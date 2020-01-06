@@ -9,6 +9,7 @@
 
     animation-name: ripple;
     animation-duration: 3.5s;
+    animation-timing-function: ease-out;
 }
 
 .Drip.Sub-1 {

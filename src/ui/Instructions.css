@@ -1,0 +1,13 @@
+.Instructions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(9, 18, 47, 0.4);
+    color: #EEE;
+    padding: 15px;
+    border: 1px solid #EEE;
+    border-radius: 3px;
+    font-size: 20px;
+    z-index: 999;
+    max-width: 250px;
+}
