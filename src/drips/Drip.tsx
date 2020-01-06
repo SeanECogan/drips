@@ -9,33 +9,44 @@ type DripProps = {
     onDripRemoval: Function
 };
 
-type DripState = {
-    offset: number
-};
-
-class Drip extends React.Component<DripProps, DripState> {
-    constructor(props: DripProps) {
-        super(props);
-
-        this.state = {
-            offset: 0
-        };
-    }  
-    
+class Drip extends React.Component<DripProps, {}> {
     componentDidMount() {
         setTimeout(() => {
             this.props.onDripRemoval(this.props.id);
-        }, 2000);
+        }, 4550);
     }
 
     render() {
         return (
-            <div 
-                className="Drip"
-                style={{
-                    top: this.props.yPos,
-                    left: this.props.xPos
-                }}>
+            <div>
+                <div
+                    className="Drip"
+                    style={{
+                        top: this.props.yPos,
+                        left: this.props.xPos
+                    }}>
+                </div>
+                <div
+                    className="Drip Sub-1"
+                    style={{
+                        top: this.props.yPos,
+                        left: this.props.xPos
+                    }}>
+                </div>
+                <div
+                    className="Drip Sub-2"
+                    style={{
+                        top: this.props.yPos,
+                        left: this.props.xPos
+                    }}>
+                </div>
+                <div
+                    className="Drip Sub-3"
+                    style={{
+                        top: this.props.yPos,
+                        left: this.props.xPos
+                    }}>
+                </div>
             </div>
         );
     }

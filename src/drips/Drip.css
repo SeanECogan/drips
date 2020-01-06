@@ -3,10 +3,24 @@
     height: 0px;
     width: 0px;
     border: 3px solid #4a96e2;
-    border-radius: 50px;
+    background-color: rgba(74, 150, 226, 0.2);
+    border-radius: 0px;
+    opacity: 0;
 
     animation-name: ripple;
-    animation-duration: 2s;
+    animation-duration: 3.5s;
+}
+
+.Drip.Sub-1 {
+    animation-delay: 0.35s;
+}
+
+.Drip.Sub-2 {
+    animation-delay: 0.7s;
+}
+
+.Drip.Sub-3 {
+    animation-delay: 1.05s;
 }
 
 @keyframes ripple {
@@ -16,13 +30,15 @@
         border-radius: 0px;
         margin-top: 0px;
         margin-left: 0px;
+        opacity: 1;
     }
 
     to {
-        height: 250px;
-        width: 250px;
-        border-radius: 125px;
-        margin-left: -125px;
-        margin-top: -125px;
+        height: 300px;
+        width: 300px;
+        border-radius: 150px;
+        margin-left: -150px;
+        margin-top: -150px;
+        opacity: 0;
     }
 }
