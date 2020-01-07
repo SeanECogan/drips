@@ -26,15 +26,29 @@ it('renders', () => {
         render(<HomeLink />, container);
     });
 
-    expect(container).toBeTruthy();
+    const homeLinkElement = container?.firstChild as Element;
+
+    expect(homeLinkElement).toBeTruthy();
 });
 
-it('renders a link whose text says \'Return Home\'', () => {
+it('renders a hyperlink', () => {
     act(() => {
         render(<HomeLink />, container);
     });
+    
+    const homeLinkElement = container?.firstChild as Element;
 
-    expect(container?.textContent).toBe('Return Home');
+    expect(homeLinkElement.tagName).toBe('A');
+});
+
+it('renders a hyperlink whose text says \'Return Home\'', () => {
+    act(() => {
+        render(<HomeLink />, container);
+    });
+    
+    const homeLinkElement = container?.firstChild as Element;
+
+    expect(homeLinkElement.textContent).toBe('Return Home');
 });
 
 it('renders a link whose address points to the seanecogan homepage', () => {
@@ -42,5 +56,7 @@ it('renders a link whose address points to the seanecogan homepage', () => {
         render(<HomeLink />, container);
     });
 
-    expect((container?.firstChild as Element).getAttribute('href')).toBe('https://seanecogan.com');
+    const homeLinkElement = container?.firstChild as Element;
+
+    expect(homeLinkElement.getAttribute('href')).toBe('https://seanecogan.com');
 });
