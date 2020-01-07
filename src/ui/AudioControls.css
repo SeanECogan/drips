@@ -1,0 +1,26 @@
+.AudioControls {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgba(9, 18, 47, 0.4);
+    color: #EEE;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid #EEE;
+    border-radius: 3px;
+    font-size: 10px;
+    z-index: 999;
+    text-decoration: none;
+}
+
+.AudioControls p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.AudioControls i:hover {
+    cursor: pointer;
+}

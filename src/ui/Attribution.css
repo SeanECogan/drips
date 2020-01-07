@@ -1,0 +1,38 @@
+.Attribution {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(9, 18, 47, 0.4);
+    color: #EEE;
+    padding: 8px;
+    border: 1px solid #EEE;
+    border-radius: 3px;
+    font-size: 10px;
+    z-index: 999;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.25s;
+}
+
+.Attribution:hover {
+    opacity: 1.0
+}
+
+.Attribution p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.Attribution a {
+    color: #4a96e2;
+}
+
+.Attribution a:visited {
+    color: #e24a96;
+}
+
+@media(max-width: 480px) {
+    .Attribution {
+        max-width: 150px;
+    }
+}

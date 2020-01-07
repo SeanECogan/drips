@@ -5,11 +5,17 @@ import Drip from './drips/Drip';
 import DripModel from './drips/DripModel';
 import HomeLink from './ui/HomeLink';
 import Instructions from './ui/Instructions';
+import AudioControls from './ui/AudioControls';
+import Attribution from './ui/Attribution';
 
 import './App.css';
 
 const dripAudio = require('./sounds/drip.wav');
-const dripSound = new UIfx(dripAudio);
+const dripSound = new UIfx(
+  dripAudio,
+  {
+    volume: 0.5
+  });
 
 function App() {
   const [drips, setDrips] = useState(new Array<DripModel>());
@@ -55,6 +61,8 @@ function App() {
     <div className="App">
       <HomeLink />
       <Instructions />
+      <AudioControls />
+      <Attribution />
       {
         drips && 
         drips.length > 0 && 
