@@ -21,24 +21,29 @@ function App() {
   const [drips, setDrips] = useState(new Array<DripModel>());
 
   function addDrip(e: MouseEvent) {
-    const currentDrips = [...drips];
+    if (e && 
+        e.target && 
+        ((e.target as HTMLElement).tagName === 'HTML' ||
+         (e.target as HTMLElement).className.indexOf('Drip') >= 0)) {
+      const currentDrips = [...drips];
 
-    let newDripId = 1;
+      let newDripId = 1;
 
-    if (drips.length > 0) {
-      newDripId = Math.max(...drips.map(drip => drip.id)) + 1;
+      if (drips.length > 0) {
+        newDripId = Math.max(...drips.map(drip => drip.id)) + 1;
+      }
+
+      const newDrip = new DripModel(
+        newDripId,
+        e.clientX,
+        e.clientY
+      );
+
+      currentDrips.push(newDrip);
+
+      setDrips(currentDrips);
+      dripSound.play();
     }
-
-    const newDrip = new DripModel(
-      newDripId,
-      e.clientX,
-      e.clientY
-    );
-
-    currentDrips.push(newDrip);
-
-    setDrips(currentDrips);
-    dripSound.play();
   }  
 
   function handleDripRemoval(dripId: number) {
