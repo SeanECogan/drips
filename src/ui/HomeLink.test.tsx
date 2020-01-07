@@ -37,8 +37,9 @@ it('renders a hyperlink', () => {
     });
     
     const homeLinkElement = container?.firstChild as Element;
+    const expected = 'A';
 
-    expect(homeLinkElement.tagName).toBe('A');
+    expect(homeLinkElement.tagName).toBe(expected);
 });
 
 it('renders a hyperlink whose text says \'Return Home\'', () => {
@@ -47,8 +48,9 @@ it('renders a hyperlink whose text says \'Return Home\'', () => {
     });
     
     const homeLinkElement = container?.firstChild as Element;
+    const expected = 'Return Home';
 
-    expect(homeLinkElement.textContent).toBe('Return Home');
+    expect(homeLinkElement.textContent).toBe(expected);
 });
 
 it('renders a link whose address points to the seanecogan homepage', () => {
@@ -57,6 +59,7 @@ it('renders a link whose address points to the seanecogan homepage', () => {
     });
 
     const homeLinkElement = container?.firstChild as Element;
+    const expected = 'https://seanecogan.com';
 
-    expect(homeLinkElement.getAttribute('href')).toBe('https://seanecogan.com');
+    expect(homeLinkElement.getAttribute('href')).toBe(expected);
 });

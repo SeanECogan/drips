@@ -31,7 +31,18 @@ it('renders', () => {
     expect(attributionElement).toBeTruthy();
 });
 
-it('renders four paragraphs', () => {
+it('renders a div', () => {
+    act(() => {
+        render(<Attribution />, container);
+    });
+
+    const attributionElement = container?.firstChild as Element;
+    const expected = 'DIV';
+
+    expect(attributionElement.tagName).toEqual(expected);
+});
+
+it('renders a div with four paragraphs', () => {
     act(() => {
         render(<Attribution />, container);
     });
@@ -76,8 +87,9 @@ it('renders a hyperlink in the last paragraph', () => {
     const lastParagraphElement = 
         attributionElement
             .childNodes[attributionElement.childNodes.length - 1] as Element;
+    const expected = 'A';
 
-    expect((lastParagraphElement.firstChild as Element).tagName).toBe('A');
+    expect((lastParagraphElement.firstChild as Element).tagName).toBe(expected);
 });
 
 it('renders a hyperlink whose address points to the Creative Commons page', () => {
@@ -89,7 +101,8 @@ it('renders a hyperlink whose address points to the Creative Commons page', () =
     const lastParagraphElement = 
         attributionElement
             .childNodes[attributionElement.childNodes.length - 1] as Element;
+    const expected = 'http://creativecommons.org/licenses/by/3.0/';
 
     expect((lastParagraphElement.firstChild as Element).getAttribute('href'))
-        .toBe('http://creativecommons.org/licenses/by/3.0/');
+        .toBe(expected);
 });
