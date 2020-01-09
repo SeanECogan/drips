@@ -1,8 +1,17 @@
+# Drips
 [![Build Status](https://travis-ci.com/SeanECogan/drips.svg?branch=master)](https://travis-ci.com/SeanECogan/drips)
 
 [Check it out here!](https://seanecogan.com/drips/)
 
-## Available Scripts
+## How to Use
+
+Click or tap anywhere on the page to add a new ripple.
+
+Background music can be played via the controls in the bottom left-hand corner of the screen.
+
+The button in the top left-hand corner of the screen will return you to https://seanecogan.com.
+
+## Development
 
 In the project directory, you can run:
 
