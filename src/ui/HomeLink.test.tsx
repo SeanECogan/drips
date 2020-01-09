@@ -13,8 +13,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-    // Cleanup on exiting.
     if (container) {
+        // Cleanup on exiting.
         unmountComponentAtNode(container);
         container.remove();
         container = null;

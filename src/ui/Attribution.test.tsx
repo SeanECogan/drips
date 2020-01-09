@@ -13,8 +13,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-    // Cleanup on exiting.
     if (container) {
+        // Cleanup on exiting.
         unmountComponentAtNode(container);
         container.remove();
         container = null;
@@ -84,12 +84,12 @@ it('renders a hyperlink in the last paragraph', () => {
     });
 
     const attributionElement = container?.firstChild as Element;
-    const lastParagraphElement = 
+    const linkParagraphElement = 
         attributionElement
             .childNodes[attributionElement.childNodes.length - 1] as Element;
     const expected = 'A';
 
-    expect((lastParagraphElement.firstChild as Element).tagName).toBe(expected);
+    expect((linkParagraphElement.firstChild as Element).tagName).toBe(expected);
 });
 
 it('renders a hyperlink whose address points to the Creative Commons page', () => {
@@ -98,11 +98,11 @@ it('renders a hyperlink whose address points to the Creative Commons page', () =
     });
 
     const attributionElement = container?.firstChild as Element;
-    const lastParagraphElement = 
+    const linkParagraphElement = 
         attributionElement
             .childNodes[attributionElement.childNodes.length - 1] as Element;
     const expected = 'http://creativecommons.org/licenses/by/3.0/';
 
-    expect((lastParagraphElement.firstChild as Element).getAttribute('href'))
+    expect((linkParagraphElement.firstChild as Element).getAttribute('href'))
         .toBe(expected);
 });
