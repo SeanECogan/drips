@@ -1,5 +1,6 @@
 # Drips
 [![Build Status](https://travis-ci.com/SeanECogan/drips.svg?branch=master)](https://travis-ci.com/SeanECogan/drips)
+[![Coverage Status](https://coveralls.io/repos/github/SeanECogan/drips/badge.svg?branch=master)](https://coveralls.io/github/SeanECogan/drips?branch=master)
 
 [Check it out here!](https://seanecogan.com/drips/)
 
