@@ -6,4 +6,4 @@ cache:
     - node_modules
 script: 
   - npm run build
-  - npm run coveralls-test
+  - npm run coveralls-test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
