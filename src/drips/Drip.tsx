@@ -10,10 +10,18 @@ type DripProps = {
 };
 
 class Drip extends React.Component<DripProps, {}> {
+    removalTimeout : (NodeJS.Timeout | null) = null;
+
     componentDidMount() {
-        setTimeout(() => {
+        this.removalTimeout = setTimeout(() => {
             this.props.onDripRemoval(this.props.id);
         }, 4200);
+    }
+
+    componentWillUnmount() {
+        if (this.removalTimeout) {
+            clearTimeout(this.removalTimeout);
+        }
     }
 
     render() {
